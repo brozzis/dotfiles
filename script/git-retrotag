@@ -1,0 +1,66 @@
+#!/bin/bash
+#
+# Git retroactive auto-tagging script.
+# by Dave Reisner (d@falconindy.com)
+#
+commits=()
+
+# parse git-whatchanged to earmark commits where VERSION was modified
+while read -r line; do
+  [[ $line =~ ^$ ]] && continue
+  if [[ ! $line =~ ^: ]]; then
+    # current commit being examined
+    read curcommit <<< $line
+    continue
+  fi
+
+  # parse file change information
+  read -r _ _ _ _ action file <<< $line
+  if [[ $action =~ [AM] && $file == "VERSION" ]]; then
+    commits+=("$curcommit")
+  fi
+done < <(git whatchanged --format="%H %ai")
+# create our own format so that we get the author date (we'll want it for tagging)
+
+if (( ${#commits[@]} == 0 )); then
+  echo "error: No candidate commits were found for tagging" >&2
+  exit 1
+fi
+
+# step through the found commits for reassurance
+echo "Found ${#commits[@]} commits worthy of tagging. Press enter to review the commits."
+read
+for commit in "${commits[@]}"; do
+  read hash date <<< $commit
+  git show --stat $hash
+done
+
+
+# this is your chance to abort
+read -N1 -p "Satisfied? Continue with tagging? (y/N) " reply
+echo
+[[ ! "$reply" =~ [Yy] ]] && { echo "Aborting..."; exit 1; }
+
+
+# do it!
+for commit in "${commits[@]}"; do
+  read hash date <<< $commit
+  [[ -z $hash || -z $date ]] && { echo "Fatal error! Something is horribly wrong" >&2; exit 42; }
+  {
+    # make a new branch, rewound to the commit
+    git checkout $hash -b $hash
+    version=$(< VERSION)
+
+    # embed the author date in the tag ref, as if it was tagged on the day of the commit
+    GIT_COMMITTER_DATE="$date" git tag -a "$version" -m "tag as $version"
+
+    # reset for next iteration
+    git checkout master
+    git branch -d $hash
+  } &>/dev/null
+  echo "${hash:0:8} => $version"
+  unset hash date
+done
+
+echo
+echo "Finished tagging! Use \`git push --tags\` to push all tag refs to the remote."
