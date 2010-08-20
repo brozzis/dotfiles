@@ -85,6 +85,9 @@ nnoremap <C-y> 3<C-y>
 " easy file saving
 map <C-s> :w<CR>
 
+" syntax check Ruby script
+map <LocalLeader>sr :!ruby -c %<cr>
+
 " ----------------------------------------------------------------------------
 " Ryan Tomayko's Todo File Mappings
 " http://github.com/rtomayko/dotfiles/blob/rtomayko/.vimrc
