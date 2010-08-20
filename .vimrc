@@ -82,6 +82,9 @@ map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloa
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" easy file saving
+map <C-s> :w<CR>
+
 " ----------------------------------------------------------------------------
 " Ryan Tomayko's Todo File Mappings
 " http://github.com/rtomayko/dotfiles/blob/rtomayko/.vimrc
@@ -161,12 +164,13 @@ if has('gui_running')
   imap <c-s-tab> <c-o>:tabprevious<cr>
   vmap <c-s-tab> <c-o>:tabprevious<cr>
 
-  " C-# switches to tab
+  " jump directly to tab
   let i=1
   while i<=9
-    execute "nmap <C-".i."> ".i."gt"
-    execute "vmap <C-".i."> ".i."gt"
-    execute "imap <C-".i."> <ESC>".i."gt"
+    execute "map ,".i." ".i."gt<cr>"
+    "execute "nmap <C-".i."> ".i."gt"
+    "execute "vmap <C-".i."> ".i."gt"
+    "execute "imap <C-".i."> <ESC>".i."gt"
     let i+=1
   endwhile
 endif
