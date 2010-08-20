@@ -96,13 +96,19 @@ map ,x :s/^\[ \]/[x]/<CR>
 map ,X :s/^\[x\]/[ ]/<CR>
 
 " ---------------------------------------------------------------------------
+"  Variables
+" ---------------------------------------------------------------------------
+
+let maplocalleader = ","
+
+" ---------------------------------------------------------------------------
 "  Strip Trailing Whitespace
 " ---------------------------------------------------------------------------
 
 function! KillWhitespace ()
   exec ':%s/\s\+$//gc'
 endfunction
-map ,ks :call KillWhitespace ()<CR>
+map <LocalLeader>ks :call KillWhitespace ()<CR>
 
 " ---------------------------------------------------------------------------
 "  Convert Tabs to Spaces
@@ -111,7 +117,7 @@ map ,ks :call KillWhitespace ()<CR>
 function! KillTabs ()
   exec ':%s/\t/  /gc'
 endfunction
-map ,kt :call KillTabs ()<CR>
+map <LocalLeader>kt :call KillTabs ()<CR>
 
 " ---------------------------------------------------------------------------
 "  Kill DOS Line Breaks
@@ -120,7 +126,7 @@ map ,kt :call KillTabs ()<CR>
 function! KillDosLineBreaks ()
   exec ':%s///gc'
 endfunction
-map ,kd :call KillDosLineBreaks ()<CR>
+map <LocalLeader>kd :call KillDosLineBreaks ()<CR>
 
 " ----------------------------------------------------------------------------
 "  Graphical
@@ -156,6 +162,9 @@ if has('gui_running')
 
   set guitablabel=%N\ %t\ %M\ %r
 
+  " quick open new tab
+  map <LocalLeader>t :tabnew<cr>
+
   " C-TAB and C-SHIFT-TAB cycle tabs forward and backward
   nmap <c-tab> :tabnext<cr>
   imap <c-tab> <c-o>:tabnext<cr>
@@ -167,7 +176,7 @@ if has('gui_running')
   " jump directly to tab
   let i=1
   while i<=9
-    execute "map ,".i." ".i."gt<cr>"
+    execute "map <LocalLeader>".i." ".i."gt<cr>"
     "execute "nmap <C-".i."> ".i."gt"
     "execute "vmap <C-".i."> ".i."gt"
     "execute "imap <C-".i."> <ESC>".i."gt"
