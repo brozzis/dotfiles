@@ -140,7 +140,8 @@ map <LocalLeader>kd :call KillDosLineBreaks ()<CR>
 " ----------------------------------------------------------------------------
 
 if has('gui_running')
-  set guifont=Monospace\ 8     " use this font
+  set guifont=Monospace\ 8
+  "set guifont=Anonymous\ Pro\ 8
   winpos 1100 0                " put window at right edge of left monitor
   set lines=85                 " window height
   set columns=140              " window columns
