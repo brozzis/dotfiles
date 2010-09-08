@@ -5,7 +5,6 @@
 set nocompatible           " we're running Vim, not Vi!
 set tabpagemax=50          " open 50 tabs max
 filetype plugin indent on  " load filetype plugin
-set hidden                 " handle buffers intelligently
 set history=1000           " lots of command line history
 
 " ----------------------------------------------------------------------------
