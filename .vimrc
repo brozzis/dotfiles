@@ -111,7 +111,7 @@ let maplocalleader = ","
 " ---------------------------------------------------------------------------
 
 function! KillWhitespace ()
-  exec ':%s/\s\+$//gc'
+  exec ':%s/\s\+$//g'
 endfunction
 map <LocalLeader>ks :call KillWhitespace ()<CR>
 
@@ -120,7 +120,7 @@ map <LocalLeader>ks :call KillWhitespace ()<CR>
 " ---------------------------------------------------------------------------
 
 function! KillTabs ()
-  exec ':%s/\t/  /gc'
+  exec ':%s/\t/  /g'
 endfunction
 map <LocalLeader>kt :call KillTabs ()<CR>
 
@@ -129,8 +129,7 @@ map <LocalLeader>kt :call KillTabs ()<CR>
 " ---------------------------------------------------------------------------
 
 function! KillDosLineBreaks ()
-  exec ':%s/
-//gc'
+  exec ':%s///g'
 endfunction
 map <LocalLeader>kd :call KillDosLineBreaks ()<CR>
 
