@@ -61,7 +61,7 @@ set formatoptions=l        " don't wrap in middle of words
 "  Colors / Theme
 " ---------------------------------------------------------------------------
 
-colorscheme native         " also nice: corporation, wombat
+colorscheme darkburn
 syntax on                  " enable syntax highlighting
 
 " ----------------------------------------------------------------------------
