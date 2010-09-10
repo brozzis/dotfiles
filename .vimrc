@@ -73,7 +73,7 @@ syntax on                  " enable syntax highlighting
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " ,v opens ~/.vimrc
-map ,v :sp ~/.vimrc<CR><C-W>_
+map ,v :tabe ~/.vimrc<CR><C-W>_
 
 " ,V reloads .vimrc
 map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -127,7 +127,8 @@ map <LocalLeader>kt :call KillTabs ()<CR>
 " ---------------------------------------------------------------------------
 
 function! KillDosLineBreaks ()
-  exec ':%s///gc'
+  exec ':%s/
+//gc'
 endfunction
 map <LocalLeader>kd :call KillDosLineBreaks ()<CR>
 
