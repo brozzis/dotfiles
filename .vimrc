@@ -90,16 +90,6 @@ map <LocalLeader>sr :!ruby -c %<cr>
 " insert Ruby hash pointer (" => ")
 imap <S-A-l> <Space>=><Space>
 
-" ----------------------------------------------------------------------------
-" Ryan Tomayko's Todo File Mappings
-" http://github.com/rtomayko/dotfiles/blob/rtomayko/.vimrc
-" ----------------------------------------------------------------------------
-map ,a o<ESC>:r!date +'\%A, \%B \%d, \%Y'<CR>:r!date +'\%A, \%B \%d, \%Y' \| sed 's/./-/g'<CR>A<CR><ESC>
-map ,o o[ ]
-map ,O O[ ]
-map ,x :s/^\[ \]/[x]/<CR>
-map ,X :s/^\[x\]/[ ]/<CR>
-
 " ---------------------------------------------------------------------------
 "  Variables
 " ---------------------------------------------------------------------------
