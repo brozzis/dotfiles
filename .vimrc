@@ -34,6 +34,7 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=atI          " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
+set linebreak              " wrap long lines between words
 
 " ----------------------------------------------------------------------------
 "  Visual Cues
@@ -54,8 +55,6 @@ set visualbell             " shut the fuck up
 set expandtab              " expand tabs to spaces
 set softtabstop=2
 set shiftwidth=2           " distance to shift lines with < and >
-set textwidth=80           " wrap at 80 chars by default
-set formatoptions=l        " don't wrap in middle of words
 
 " ---------------------------------------------------------------------------
 "  Colors / Theme
@@ -149,6 +148,7 @@ if has('gui_running')
   "  Highlight Trailing Whitespace
   " --------------------------------------------------------------------------
 
+  " note that this inhibits the linebreak option so lines will wrap mid-word
   set list listchars=trail:.,tab:>.
   highlight SpecialKey ctermfg=DarkGray ctermbg=Black
 
