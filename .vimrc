@@ -134,8 +134,6 @@ if has('gui_running')
   set columns=140              " window columns
   set guioptions=gemc          " show menu, tabs, console dialogs
   set number                   " show line numbers
-  "autocmd VimEnter * NERDTree  " open NERDTree on start
-  "autocmd VimEnter * wincmd p  " move cursor out of NERDTree
 
   " -------------------------------------------------------------------------
   "  Copy To/Paste From System Clipboard
