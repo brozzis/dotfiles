@@ -60,7 +60,7 @@ set shiftwidth=2           " distance to shift lines with < and >
 "  Colors / Theme
 " ---------------------------------------------------------------------------
 
-colorscheme darkburn
+colorscheme lucius
 syntax on                  " enable syntax highlighting
 
 " ----------------------------------------------------------------------------
