@@ -40,6 +40,7 @@ set linebreak              " wrap long lines between words
 "  Visual Cues
 " ----------------------------------------------------------------------------
 
+syntax on                  " enable syntax highlighting
 let loaded_matchparen=1    " don't hightlight matching brackets/braces
 set laststatus=2           " always show the status line
 set hlsearch               " highlight all search terms
@@ -55,13 +56,6 @@ set visualbell             " shut the fuck up
 set expandtab              " expand tabs to spaces
 set softtabstop=2
 set shiftwidth=2           " distance to shift lines with < and >
-
-" ---------------------------------------------------------------------------
-"  Colors / Theme
-" ---------------------------------------------------------------------------
-
-colorscheme lucius
-syntax on                  " enable syntax highlighting
 
 " ----------------------------------------------------------------------------
 "  Mappings
@@ -127,6 +121,7 @@ map <LocalLeader>kd :call KillDosLineBreaks ()<CR>
 " ----------------------------------------------------------------------------
 
 if has('gui_running')
+  colorscheme lucius
   set guifont=Monospace\ 8
   "set guifont=Anonymous\ Pro\ 8
   winpos 1100 0                " put window at right edge of left monitor
