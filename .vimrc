@@ -139,8 +139,13 @@ if has('gui_running')
   "  Copy To/Paste From System Clipboard
   " -------------------------------------------------------------------------
 
+  " copy
   vmap <S-C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
-  " nmap <S-C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+  "nmap <LocalLeader>y "+y
+
+  " paste
+  nmap <LocalLeader>p "+gP
+  "nmap <S-C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
