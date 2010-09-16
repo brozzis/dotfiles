@@ -151,8 +151,11 @@ if has('gui_running')
   "nmap <LocalLeader>y "+y
 
   " paste
-  nmap <LocalLeader>p "+gP
+  nmap <LocalLeader>p "+gp
   "nmap <S-C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+
+  " paste from insert mode
+  imap ppp <ESC>"+gpa
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
