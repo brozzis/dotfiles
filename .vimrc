@@ -58,6 +58,18 @@ set softtabstop=2
 set shiftwidth=2           " distance to shift lines with < and >
 
 " ----------------------------------------------------------------------------
+"  Autocommands
+" ----------------------------------------------------------------------------
+
+" enable spellchecking for non-code files
+au BufRead,BufNewFile *.txt set spell
+au BufRead,BufNewFile *.rdoc set spell
+au BufRead,BufNewFile *.textile set spell
+
+" on save, make file executable if has shebang line with '/bin/'
+au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif
+
+" ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
 
