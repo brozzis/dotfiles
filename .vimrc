@@ -76,11 +76,11 @@ au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | en
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" ,v opens ~/.vimrc
-map ,v :tabe ~/.vimrc<CR><C-W>_
+" ,; opens ~/.vimrc
+map ,; :tabe ~/.vimrc<CR><C-W>_
 
-" ,V reloads .vimrc
-map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+" ,: reloads .vimrc
+map <silent> ,: :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " faster viewport scrolling
 nnoremap <C-e> 3<C-e>
@@ -151,11 +151,12 @@ if has('gui_running')
   "nmap <LocalLeader>y "+y
 
   " paste
-  nmap <LocalLeader>p "+gp
+  nmap <LocalLeader>v "+gp
+  nmap <LocalLeader>V "+gP
   "nmap <S-C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
   " paste from insert mode
-  imap ppp <ESC>"+gpa
+  imap vvv <ESC>"+gpa
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
