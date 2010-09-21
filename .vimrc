@@ -148,7 +148,7 @@ cmap vv <C-r>+
 " ----------------------------------------------------------------------------
 
 if has('gui_running')
-  colorscheme mustang
+  colorscheme losh_molokai
   set guifont=Monospace\ 8
   winpos 1100 0                " put window at right edge of left monitor
   set lines=85                 " window height
