@@ -3,6 +3,7 @@
 " ---------------------------------------------------------------------------
 
 set nocompatible           " we're running Vim, not Vi!
+set modelines=0            " prevent security exploits
 set tabpagemax=50          " open 50 tabs max
 filetype plugin indent on  " load filetype plugin
 set history=1000           " lots of command line history
