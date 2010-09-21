@@ -147,20 +147,27 @@ if has('gui_running')
   set number                   " show line numbers
 
   " -------------------------------------------------------------------------
-  "  Copy To/Paste From System Clipboard
+  "  Copy/Paste Shortcuts
   " -------------------------------------------------------------------------
 
-  " copy
-  vmap <S-C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
-  "nmap <LocalLeader>y "+y
+  " copy to system clipboard
+  vmap <S-C-c> "+y
 
-  " paste
+  " paste in NORMAL mode from system clipboard (at or after cursor)
   nmap <LocalLeader>v "+gp
   nmap <LocalLeader>V "+gP
-  "nmap <S-C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
-  " paste from insert mode
-  imap vvv <ESC>"+gpa
+  " paste in INSERT mode from Vim's clipboard (unnamed register)
+  imap ppp <ESC>pa
+
+  " paste in INSERT mode from system clipboard
+  imap vv <ESC>"+gpa
+
+  " paste in COMMAND mode from Vim's clipboard (unnamed register)
+  cmap vv <c-r>"
+
+  " paste in COMMAND mode from system clipboard
+  cmap ppp <c-r>+
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
