@@ -49,6 +49,7 @@ set hlsearch               " highlight all search terms
 set incsearch              " highlight search text as entered
 set ignorecase             " ignore case when searching
 set smartcase              " case sensitive only if capitals in search term
+"set colorcolumn=80        " not available until Vim 7.3
 set visualbell             " shut the fuck up
 
 " ----------------------------------------------------------------------------
