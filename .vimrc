@@ -151,11 +151,11 @@ if has('gui_running')
   " -------------------------------------------------------------------------
 
   " copy to system clipboard
-  vmap <S-C-c> "+y
+  vmap <C-c> "+y
 
   " paste in NORMAL mode from system clipboard (at or after cursor)
-  nmap <LocalLeader>v "+gp
   nmap <LocalLeader>V "+gP
+  nmap <LocalLeader>v "+gp
 
   " paste in INSERT mode from Vim's clipboard (unnamed register)
   imap ppp <ESC>pa
@@ -164,10 +164,10 @@ if has('gui_running')
   imap vv <ESC>"+gpa
 
   " paste in COMMAND mode from Vim's clipboard (unnamed register)
-  cmap ppp <c-r>"
+  cmap ppp <C-r>"
 
   " paste in COMMAND mode from system clipboard
-  cmap vv <c-r>+
+  cmap vv <C-r>+
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
