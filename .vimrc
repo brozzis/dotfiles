@@ -108,6 +108,19 @@ map <LocalLeader>sr :!ruby -c %<cr>
 imap <S-A-l> <Space>=><Space>
 
 " ---------------------------------------------------------------------------
+"  Handling Whitespace
+" ---------------------------------------------------------------------------
+
+"  strip trailing whitespace
+map <LocalLeader>ks :%s/\s\+$//g<CR>
+
+"  convert tabs to spaces
+map <LocalLeader>kt :%s/\t/  /g<CR>
+
+"  kill DOS line breaks
+map <LocalLeader>kd :%s///g<CR>
+
+" ---------------------------------------------------------------------------
 "  Copy/Paste Shortcuts
 " ---------------------------------------------------------------------------
 
@@ -129,33 +142,6 @@ cmap ppp <C-r>"
 
 " paste in COMMAND mode from system clipboard
 cmap vv <C-r>+
-
-" ---------------------------------------------------------------------------
-"  Strip Trailing Whitespace
-" ---------------------------------------------------------------------------
-
-function! KillWhitespace ()
-  exec ':%s/\s\+$//g'
-endfunction
-map <LocalLeader>ks :call KillWhitespace ()<CR>
-
-" ---------------------------------------------------------------------------
-"  Convert Tabs to Spaces
-" ---------------------------------------------------------------------------
-
-function! KillTabs ()
-  exec ':%s/\t/  /g'
-endfunction
-map <LocalLeader>kt :call KillTabs ()<CR>
-
-" ---------------------------------------------------------------------------
-"  Kill DOS Line Breaks
-" ---------------------------------------------------------------------------
-
-function! KillDosLineBreaks ()
-  exec ':%s///g'
-endfunction
-map <LocalLeader>kd :call KillDosLineBreaks ()<CR>
 
 " ----------------------------------------------------------------------------
 "  Graphical
