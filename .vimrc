@@ -73,9 +73,8 @@ au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | en
 "  Mappings
 " ----------------------------------------------------------------------------
 
-" Shift-Space to toggle insert mode
-:imap <S-Space> <Esc>
-:nmap <S-Space> i
+" jj to exit insert mode
+:imap jj <Esc>
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
