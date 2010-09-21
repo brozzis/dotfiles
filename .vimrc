@@ -77,6 +77,7 @@ au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | en
 " ---------------------------------------------------------------------------
 
 let maplocalleader = ","
+let g:ackprg="ack-grep\\ -H\\ --nocolor\\ --nogroup\\ --column" " for Ack plugin
 
 " ----------------------------------------------------------------------------
 "  Mappings
@@ -100,6 +101,9 @@ nnoremap <C-y> 3<C-y>
 
 " easy file saving
 map <C-s> :w<CR>
+
+" easy ack
+nnoremap <LocalLeader>a :Ack 
 
 " syntax check Ruby script
 map <LocalLeader>sr :!ruby -c %<cr>
