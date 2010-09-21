@@ -164,10 +164,10 @@ if has('gui_running')
   imap vv <ESC>"+gpa
 
   " paste in COMMAND mode from Vim's clipboard (unnamed register)
-  cmap vv <c-r>"
+  cmap ppp <c-r>"
 
   " paste in COMMAND mode from system clipboard
-  cmap ppp <c-r>+
+  cmap vv <c-r>+
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
