@@ -64,11 +64,6 @@ set shiftwidth=2           " distance to shift lines with < and >
 "  Autocommands
 " ----------------------------------------------------------------------------
 
-" enable spellchecking for non-code files
-au BufRead,BufNewFile *.txt set spell
-au BufRead,BufNewFile *.rdoc set spell
-au BufRead,BufNewFile *.textile set spell
-
 " on save, make file executable if has shebang line with '/bin/'
 au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif
 
@@ -106,10 +101,23 @@ map <C-s> :w<CR>
 nnoremap <LocalLeader>a :Ack 
 
 " syntax check Ruby script
-map <LocalLeader>sr :!ruby -c %<cr>
+map <LocalLeader>cr :!ruby -c %<cr>
 
 " insert Ruby hash pointer (" => ")
 imap <S-A-l> <Space>=><Space>
+
+" ---------------------------------------------------------------------------
+"  Spell Checking
+" ---------------------------------------------------------------------------
+
+" ,ss toggles spell checking
+map <LocalLeader>ss :setlocal spell!<cr>
+
+" spell checking shortcuts (next, prev, add, suggest)
+map <LocalLeader>sn ]s
+map <LocalLeader>sp [s
+map <LocalLeader>sa zg
+map <LocalLeader>s? z=
 
 " ---------------------------------------------------------------------------
 "  Handling Whitespace
