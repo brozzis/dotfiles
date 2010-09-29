@@ -92,6 +92,10 @@ map ,; :tabe ~/.vimrc<CR><C-W>_
 " ,: reloads .vimrc
 map <silent> ,: :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" move up and down by screen lines instead of text lines
+nnoremap j gj
+nnoremap k gk
+
 " faster viewport scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
