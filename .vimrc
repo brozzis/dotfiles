@@ -80,8 +80,8 @@ let g:ackprg="ack-grep\\ -H\\ --nocolor\\ --nogroup\\ --column" " for Ack plugin
 "  Mappings
 " ----------------------------------------------------------------------------
 
-" jj to exit insert mode
-imap jj <Esc>
+" kj to exit insert mode
+imap kj <Esc>
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
