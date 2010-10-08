@@ -109,6 +109,9 @@ map <LocalLeader>cr :!ruby -c %<cr>
 " insert Ruby hash pointer (" => ")
 imap <S-A-l> <Space>=><Space>
 
+" change directory to that of current file
+cmap cdc cd %:p:h
+
 " ---------------------------------------------------------------------------
 "  Split Navigation
 " ---------------------------------------------------------------------------
