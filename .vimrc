@@ -175,11 +175,18 @@ cmap vv <C-r>+
 " ----------------------------------------------------------------------------
 
 if has('gui_running')
+
+  if system("uname") == "Darwin" " on OSX
+    set lines=55
+    set columns=84
+  else                         " on Ubuntu
+    set guifont=Monospace\ 8
+    winpos 1100 0              " put window at right edge of left monitor
+    set lines=85
+    set columns=140
+  endif
+
   colorscheme losh_molokai
-  set guifont=Monospace\ 8
-  winpos 1100 0                " put window at right edge of left monitor
-  set lines=85                 " window height
-  set columns=140              " window columns
   set guioptions=gemc          " show menu, tabs, console dialogs
   set number                   " show line numbers
 
