@@ -116,10 +116,11 @@ cmap cdc cd %:p:h
 "  Split Navigation
 " ---------------------------------------------------------------------------
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" go left, right, up, down
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " ---------------------------------------------------------------------------
 "  Spell Checking
