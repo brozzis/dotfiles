@@ -63,9 +63,6 @@ set shiftwidth=2           " distance to shift lines with < and >
 "  Autocommands
 " ----------------------------------------------------------------------------
 
-" save all files whenever Vim loses focus
-au FocusLost * :wa
-
 " on save, make file executable if has shebang line with '/bin/'
 au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif
 
