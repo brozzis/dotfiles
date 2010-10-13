@@ -159,13 +159,13 @@ nmap <LocalLeader>V "+gP
 nmap <LocalLeader>v "+gp
 
 " paste in INSERT mode from Vim's clipboard (unnamed register)
-imap ppp <ESC>pa
+imap vp <ESC>pa
 
 " paste in INSERT mode from system clipboard
 imap vv <ESC>"+gpa
 
 " paste in COMMAND mode from Vim's clipboard (unnamed register)
-cmap ppp <C-r>"
+cmap vp <C-r>"
 
 " paste in COMMAND mode from system clipboard
 cmap vv <C-r>+
