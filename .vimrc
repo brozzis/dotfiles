@@ -63,8 +63,12 @@ set shiftwidth=2           " distance to shift lines with < and >
 "  Autocommands
 " ----------------------------------------------------------------------------
 
+function MakeExecutable()
+  silent !chmod a+x %
+endfunction
+
 " on save, make file executable if has shebang line with '/bin/'
-au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod a+x <afile> | endif
+au BufWritePost * if getline(1) =~ "^#!/bin/" | :call MakeExecutable() | endif
 
 " ---------------------------------------------------------------------------
 "  Variables
