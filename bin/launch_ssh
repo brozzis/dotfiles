@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Launch an ssh client to connect to a remote server.
+# Requires three arguments: color, server, user
+# One optional argument: extra options to ssh command
+#
+
+/usr/bin/gnome-terminal  --hide-menubar --geometry 110x20 --window-with-profile="Remote $1" --title="SSH: $2" -e "/usr/bin/ssh -l $3 $4 $2"
+

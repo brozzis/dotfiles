@@ -104,6 +104,9 @@ function authme {
   ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
 }
 
+# prepend ~/bin to PATH
+PATH="$HOME/bin:$PATH"
+
 # jump to ~/dev subdirs
 export CDPATH=.:~/dev
 

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Remove all .svn subdirectories from a path.
+
+show_usage() {
+  echo "Usage: unsvn DIRNAME"
+}
+
+if [ -z $1 ]; then
+  show_usage
+else
+  if [ ! -d $1 ]; then
+    echo "unsvn: $1 is not a directory"
+  else
+    count=0
+    for f in `find $1 -name .svn`; do
+      rm -rf $f
+      count=$((count + 1))
+    done
+    echo "Success (removed $count .svn directories)."
+    unset count
+  fi
+fi
+
