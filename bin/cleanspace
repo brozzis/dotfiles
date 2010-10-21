@@ -4,10 +4,10 @@
 #
 
 function clean_space {
-  sed -i 's/\t/  /g' $1 # convert tabs to (2) spaces
-  sed -i 's/ *$//g' $1  # delete trailing whitespace
+  sed -i 's/\t/  /g' "$1" # convert tabs to (2) spaces
+  sed -i 's/ *$//g' "$1"  # delete trailing whitespace
 }
 
-for f in `find $1 -name *.rb`; do
-  clean_space $f
+for f in $(find "$1" -name *.rb); do
+  clean_space "$f"
 done
