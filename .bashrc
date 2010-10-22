@@ -99,6 +99,9 @@ alias xclip='xclip -selection c'
 # disk usage at current level
 alias du1='du --max-depth=1'
 
+# git interactive rebase
+alias gitrei='git rebase -i HEAD~8'
+
 # upload ssh public key to a server
 function authme {
   ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
