@@ -72,7 +72,7 @@ set shiftwidth=2           " distance to shift lines with < and >
 "  Autocommands
 " ----------------------------------------------------------------------------
 
-function MakeExecutable()
+function! MakeExecutable()
   silent !chmod a+x %
 endfunction
 
