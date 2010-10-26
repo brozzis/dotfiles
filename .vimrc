@@ -1,4 +1,13 @@
 " ---------------------------------------------------------------------------
+"  Pathogen (must be set up before filetype detection)
+" ---------------------------------------------------------------------------
+
+" system's .vimrc calls filetype; turn it off here to force reload
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" ---------------------------------------------------------------------------
 "  General
 " ---------------------------------------------------------------------------
 
