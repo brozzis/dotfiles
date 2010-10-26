@@ -116,14 +116,24 @@ map <C-s> :w<CR>
 " easy ack
 nnoremap <LocalLeader>a :Ack 
 
+" change directory to that of current file
+cmap cdc cd %:p:h
+
+" ---------------------------------------------------------------------------
+"  Ruby Mappings
+" ---------------------------------------------------------------------------
+
 " syntax check Ruby script
 map <LocalLeader>cr :!ruby -c %<cr>
 
 " insert Ruby hash pointer (" => ")
 imap <S-A-l> <Space>=><Space>
 
-" change directory to that of current file
-cmap cdc cd %:p:h
+" insert code block with arguments
+imap {<Tab> { \|\|  }<Esc>3hi
+
+" require and call debugger
+nmap <LocalLeader>id Orequire 'ruby-debug'; debugger<Esc>
 
 " ---------------------------------------------------------------------------
 "  Split Navigation
