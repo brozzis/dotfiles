@@ -49,6 +49,8 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
+GIT_PS1_SHOWDIRTYSTATE=true
+
 if [ "$color_prompt" = yes ]; then
   PS1='${debian_chroot:+($debian_chroot)}\[\033[00;33m\]\u@\h\[\033[00m\]:$?:\w$(__git_ps1 "\[\033[0;32m\](%s)\[\033[0m\]")\$ '
 else
