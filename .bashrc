@@ -49,14 +49,16 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
-GIT_PS1_SHOWDIRTYSTATE=true
+PROMPT_COMMAND='RET=$?'
+GIT_PS1_SHOWDIRTYSTATE=yes
+last_return='$((( RET )) && printf ":\[\033[1;31m\]$RET\[\033[0m\]")'
 
 if [ "$color_prompt" = yes ]; then
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[00;33m\]\u@\h\[\033[00m\]:$?:\w$(__git_ps1 "\[\033[0;32m\](%s)\[\033[0m\]")\$ '
+  PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[00;33m\]\u@\h\[\033[00m\]${last_return}:\w\$(__git_ps1 '\[\033[0;32m\](%s)\[\033[0m\]')\\$ "
 else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:$?:\w$(__git_ps1 "(%s)")\$ '
+  PS1="\${debian_chroot:+(\$debian_chroot)}\u@\h${last_return}:\w\$(__git_ps1 '(%s)')\\$ "
 fi
-unset color_prompt force_color_prompt
+unset color_prompt force_color_prompt last_return
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
