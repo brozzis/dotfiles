@@ -35,7 +35,7 @@ PROMPT_COMMAND='RET=$?'
 GIT_PS1_SHOWDIRTYSTATE=yes
 
 # set prompt
-last_return='$((( RET )) && printf ":\[\033[0;31m\]$RET\[\033[0m\]")'
+last_return='$((( RET )) && printf ":\[\033[1;31m\]$RET\[\033[0m\]")'
 PS1="\[\033[00;33m\]\u@\h\[\033[00m\]${last_return}:\w\$(__git_ps1 '\[\033[0;32m\](%s)\[\033[0m\]')\\$ "
 unset last_return
 
