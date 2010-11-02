@@ -3,6 +3,7 @@
 " ---------------------------------------------------------------------------
 
 " system's .vimrc calls filetype; turn it off here to force reload
+filetype on " turn on to avoid non-zero exit code on OSX
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
