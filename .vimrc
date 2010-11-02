@@ -33,6 +33,7 @@ set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
 "  UI
 " ----------------------------------------------------------------------------
 
+set number                 " show line numbers
 set ruler                  " show the cursor position all the time
 set scrolloff=3            " start scrolling before cursor at end
 set noshowcmd              " don't display incomplete commands
@@ -212,7 +213,6 @@ if has('gui_running')
 
   colorscheme losh_molokai
   set guioptions=gemc          " show menu, tabs, console dialogs
-  set number                   " show line numbers
 
   " --------------------------------------------------------------------------
   "  Highlight Trailing Whitespace
