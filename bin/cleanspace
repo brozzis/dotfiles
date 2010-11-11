@@ -1,9 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+#
+# Clean up whitespace in sourcecode files
+#   - convert tabs to 2 spaces
+#   - strip trailing whitespace
+#
+
+shopt -s nullglob
 
 RECURSE=
 
 usage() {
-  echo "Usage: ${0##*/} <targets>" >&2
+  echo "Usage: ${0##*/} [ -R|-r ] <targets>" >&2
 }
 
 while getopts rR opt; do
@@ -17,6 +25,7 @@ shift $(( OPTIND - 1 ))
 
 [[ -z $1 ]] && { usage; exit 1; }
 
-IFS=$'\n' read -r -d'\0' -a files < <(find "$@" -type f ${RECURSE:+-maxdepth} ${RECURSE:+1})
+IFS=$'\n' read -r -d'\0' -a files < <(find "$@" ${RECURSE:--maxdepth} ${RECURSE:-1} -type f)
 
 sed -i 's/\t/  /g;s/ *$//' "${files[@]}"
+
