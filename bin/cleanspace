@@ -1,24 +1,22 @@
 #!/usr/bin/env bash
-#
-# Clean up whitespace in Ruby scripts.
-#
 
-function show_usage {
-  echo "Usage: cleanspace DIRECTORY"
-}
-function clean_space {
-  sed -i 's/\t/  /g' "$1" # convert tabs to (2) spaces
-  sed -i 's/ *$//g' "$1"  # delete trailing whitespace
+RECURSE=
+
+usage() {
+  echo "Usage: ${0##*/} <targets>" >&2
 }
 
-# exit if no directory given
-if [[ -z "$1" ]]; then
-  show_usage
-  exit 1
-else
-  dir="$1"
-fi
-
-for f in $(find "$dir" -name *.rb); do
-  clean_space "$f"
+while getopts rR opt; do
+  case $opt in
+    r|R) RECURSE=1 ;;
+    *) usage; exit 1 ;;
+  esac
 done
+
+shift $(( OPTIND - 1 ))
+
+[[ -z $1 ]] && { usage; exit 1; }
+
+IFS=$'\n' read -r -d'\0' -a files < <(find "$@" -type f ${RECURSE:+-maxdepth} ${RECURSE:+1})
+
+sed -i 's/\t/  /g;s/ *$//' "${files[@]}"
