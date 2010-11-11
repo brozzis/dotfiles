@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # Clean up whitespace in sourcecode files
@@ -25,7 +25,10 @@ shift $(( OPTIND - 1 ))
 
 [[ -z $1 ]] && { usage; exit 1; }
 
-IFS=$'\n' read -r -d'\0' -a files < <(find "$@" ${RECURSE:--maxdepth} ${RECURSE:-1} -type f)
+IFS=$'\n' read -r -d'\0' -a files < <(find "$@" ${RECURSE:--maxdepth} ${RECURSE:-1} -type f 2>/dev/null)
+
+# make sure we have something to work with
+(( ${#files[@]} )) || exit 1
 
 sed -i 's/\t/  /g;s/ *$//' "${files[@]}"
 
