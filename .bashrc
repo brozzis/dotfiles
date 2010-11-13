@@ -88,8 +88,8 @@ export CDPATH=.:~/dev
 export LD_LIBRARY_PATH=/usr/local/lib
 
 # load credentials for various services
-if [ -f ~/.bash_credentials ]; then
-  source ~/.bash_credentials
+if [ -f ~/.credentials ]; then
+  source ~/.credentials
 fi
 
 # end interactive-only section
