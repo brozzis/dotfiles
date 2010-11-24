@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Heroku app database backup utility.
+#
+# Captures database dump (via heroku pgbackups:capture) and uploads to Amazon
+# S3 (via s3cmd). Requires a properly configured s3cmd (~/.s3cfg).
+#
+# Syntax:
+#
+#   heroku_db_backup <app> <bucket>
+#
+if [[ -z $2 ]]; then
+  echo "Usage: ${0##*/} <app> <bucket>"
+  exit 1
+fi
+
+dumpfile="$(date +%Y%m%d_%H%M%S).pgsql"
+
+heroku pgbackups:capture --app "$1" --expire
+curl -o "$dumpfile" `heroku pgbackups:url --app "$1"`
+s3cmd put "$dumpfile" "s3://$2/" && rm "$dumpfile"
