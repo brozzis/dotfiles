@@ -26,7 +26,7 @@ end
 
 # Find self in most Rails apps.
 def me
-  User.first
+  User.find(1)
 end
 
 def history
