@@ -28,16 +28,27 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
   debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# command to run before each prompt
-PROMPT_COMMAND='RET=$?'
+# allow switching to simple prompt (no Git info) when working with big Git repo
+function simple_prompt() {
+  PROMPT_COMMAND=
+  GIT_PS1_SHOWDIRTYSTATE=
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+}
 
-# include modified/staged indicator in __git_ps1 output
-GIT_PS1_SHOWDIRTYSTATE=yes
+function fancy_prompt(){
 
-# set prompt
-last_return='$((( RET )) && printf ":\[\033[1;31m\]$RET\[\033[0m\]")'
-PS1="\[\033[00;33m\]\u@\h\[\033[00m\]${last_return}:\w\$(__git_ps1 '\[\033[0;32m\](%s)\[\033[0m\]')\\$ "
-unset last_return
+  # command to run before each prompt
+  PROMPT_COMMAND='RET=$?'
+
+  # include modified/staged indicator in __git_ps1 output
+  GIT_PS1_SHOWDIRTYSTATE=yes
+
+  last_return='$((( RET )) && printf ":\[\033[1;31m\]$RET\[\033[0m\]")'
+  PS1="\[\033[00;33m\]\u@\h\[\033[00m\]${last_return}:\w\$(__git_ps1 '\[\033[0;32m\](%s)\[\033[0m\]')\\$ "
+  unset last_return
+}
+
+fancy_prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
