@@ -1,10 +1,4 @@
 require 'rubygems'
-require 'wirble'
-require 'hirb'
-Wirble.init
-Wirble.colorize
-# hirb (active record output format in table)
-Hirb::View.enable
 
 # IRB Options
 IRB.conf[:AUTO_INDENT] = true
