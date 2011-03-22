@@ -84,6 +84,11 @@ alias xclip='xclip -selection c'
 # disk usage at current level
 alias du1='du --max-depth=1'
 
+# Ruby Version Manager shortcuts
+alias r18='rvm use 1.8.7'
+alias r19='rvm use 1.9.2'
+alias rjr='rvm use jruby'
+
 # upload ssh public key to a server
 function authme {
   ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
