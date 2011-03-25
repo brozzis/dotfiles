@@ -29,13 +29,13 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # allow switching to simple prompt (no Git info) when working with big Git repo
-function simple_prompt() {
+function psnogit() {
   PROMPT_COMMAND=
   GIT_PS1_SHOWDIRTYSTATE=
   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 }
 
-function fancy_prompt(){
+function psgit(){
 
   # command to run before each prompt
   PROMPT_COMMAND='RET=$?'
@@ -48,7 +48,7 @@ function fancy_prompt(){
   unset last_return
 }
 
-fancy_prompt
+psgit
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
