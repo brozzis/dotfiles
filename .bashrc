@@ -85,6 +85,7 @@ alias xclip='xclip -selection c'
 alias du1='du --max-depth=1'
 
 # Ruby Version Manager shortcuts
+alias rc='rvm current'
 alias r18='rvm use 1.8.7'
 alias r19='rvm use 1.9.2'
 alias rjr='rvm use jruby'
