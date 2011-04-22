@@ -11,16 +11,19 @@ shopt -s nullglob
 RECURSE=
 
 usage() {
-  echo "Usage: ${0##*/} [ -R|-r ] <targets>" >&2
+  echo "Usage:"
+  printf "  %s [-r] <files>\n" $(basename $0) >&2
+  echo ""
+  echo "Options:"
+  echo "  -r      Recurse into subdirectories"
 }
 
-while getopts rR opt; do
+while getopts r opt; do
   case $opt in
-    r|R) RECURSE=1 ;;
+    r) RECURSE=1 ;;
     *) usage; exit 1 ;;
   esac
 done
-
 shift $(( OPTIND - 1 ))
 
 [[ -z $1 ]] && { usage; exit 1; }
