@@ -1,37 +1,33 @@
 #!/usr/bin/env bash
-
 #
-# Clean up whitespace in sourcecode files
-#   - convert tabs to 2 spaces
-#   - strip trailing whitespace
+# Clean up whitespace in text files.
+# Convert tabs to spaces and strip trailing whitespace on each line.
 #
-
-shopt -s nullglob
-
-RECURSE=
 
 usage() {
   echo "Usage:"
-  printf "  %s [-r] <files>\n" $(basename $0) >&2
+  printf "  %s [options] [path]\n" $(basename $0) >&2
   echo ""
   echo "Options:"
-  echo "  -r      Recurse into subdirectories"
+  echo "  -t <indent>       String to use when replacing tabs."
+  echo "  -h                Print this help."
 }
 
-while getopts r opt; do
+indent="  "
+
+while getopts "nt:" opt; do
   case $opt in
-    r) RECURSE=1 ;;
+    t) indent="$OPTARG" ;;
+    h) usage; exit 0 ;;
     *) usage; exit 1 ;;
   esac
 done
 shift $(( OPTIND - 1 ))
 
-[[ -z $1 ]] && { usage; exit 1; }
+[ -n "$1" ] && path="$1" || path=.
 
-IFS=$'\n' read -r -d'\0' -a files < <(find "$@" ${RECURSE:--maxdepth} ${RECURSE:-1} -type f 2>/dev/null)
+files=$(find "$path" -type f | xargs file | grep text | cut -f1 -d:)
 
-# make sure we have something to work with
-(( ${#files[@]} )) || exit 1
-
-sed -i 's/\t/  /g;s/ *$//' "${files[@]}"
-
+for file in $files; do
+  sed -i "s/\t/$indent/g;s/ *$//" "$file"
+done
