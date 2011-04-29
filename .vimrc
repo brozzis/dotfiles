@@ -128,6 +128,9 @@ cmap cdc cd %:p:h
 " syntax check Ruby script
 map <LocalLeader>cr :!ruby -c %<cr>
 
+" syntax check Bash script
+map <LocalLeader>cb :!bash -n %<cr>
+
 " insert Ruby hash pointer (" => ")
 imap <S-A-l> <Space>=><Space>
 
