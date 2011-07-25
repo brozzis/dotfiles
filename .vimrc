@@ -205,7 +205,7 @@ cmap vv <C-r>+
 
 if has('gui_running')
 
-  if system("uname") == "Darwin" " on OSX
+  if system("uname") == "Darwin\n" " on OSX
     set lines=55
     set columns=84
   else                         " on Ubuntu
