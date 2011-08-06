@@ -207,8 +207,9 @@ cmap vv <C-r>+
 if has('gui_running')
 
   if system("uname") == "Darwin\n" " on OSX
+    set guifont=Monaco
     set lines=55
-    set columns=84
+    set columns=94
   else                         " on Ubuntu
     set guifont=Monospace\ 8
     winpos 1100 0              " put window at right edge of left monitor
