@@ -69,6 +69,7 @@ set visualbell             " shut the fuck up
 set expandtab              " expand tabs to spaces
 set softtabstop=2
 set shiftwidth=2           " distance to shift lines with < and >
+set ts=4                   " tab character display size
 
 " ----------------------------------------------------------------------------
 "  Autocommands
