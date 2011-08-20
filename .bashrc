@@ -59,11 +59,9 @@ export CDPATH=.:"$HOME/dev"
 export LD_LIBRARY_PATH=/usr/local/lib
 
 # load credentials for various services
-if [ -f ~/.credentials ]; then
-  source ~/.credentials
-fi
-
-source "$HOME/.bash_aliases"
+for f in .bash_aliases .bash_prompt .bash_functions .credentials; do
+  [ -f "$HOME/$f" ] && source "$HOME/$f"
+done
 
 # end interactive-only section
 fi
