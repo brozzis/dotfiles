@@ -55,7 +55,7 @@ PATH="$HOME/bin:$PATH"
 # jump to ~/dev subdirs
 export CDPATH=.:"$HOME/dev"
 
-# for ImageMagick and Chadwick
+# for compiling some packages
 export LD_LIBRARY_PATH=/usr/local/lib
 
 # load credentials for various services
