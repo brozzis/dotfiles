@@ -38,11 +38,6 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -54,17 +49,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
-# for easy access to xclip (eg: ls -l | xclip)
-alias xclip='xclip -selection c'
-
 # disk usage at current level
 alias du1='du --max-depth=1'
-
-# Ruby Version Manager shortcuts
-alias rc='rvm current'
-alias r18='rvm use 1.8.7'
-alias r19='rvm use 1.9.2'
-alias rjr='rvm use jruby'
 
 # upload ssh public key to a server
 function authme {
@@ -75,7 +61,7 @@ function authme {
 PATH="$HOME/bin:$PATH"
 
 # jump to ~/dev subdirs
-export CDPATH=.:~/dev
+export CDPATH=.:"$HOME/dev"
 
 # for ImageMagick and Chadwick
 export LD_LIBRARY_PATH=/usr/local/lib
@@ -84,6 +70,8 @@ export LD_LIBRARY_PATH=/usr/local/lib
 if [ -f ~/.credentials ]; then
   source ~/.credentials
 fi
+
+source "$HOME/.bash_aliases"
 
 # end interactive-only section
 fi
