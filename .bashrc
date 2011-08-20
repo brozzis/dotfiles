@@ -23,28 +23,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# allow switching to simple prompt (no Git info) when working with big Git repo
-function psnogit() {
-  PROMPT_COMMAND=
-  GIT_PS1_SHOWDIRTYSTATE=
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-}
-
-function psgit(){
-
-  # command to run before each prompt
-  PROMPT_COMMAND='RET=$?'
-
-  # include modified/staged indicator in __git_ps1 output
-  GIT_PS1_SHOWDIRTYSTATE=yes
-
-  last_return='$((( RET )) && printf ":\[\033[1;31m\]$RET\[\033[0m\]")'
-  PS1="\[\033[00;33m\]\u@\h\[\033[00m\]${last_return}:\w\$(__git_ps1 '\[\033[0;32m\](%s)\[\033[0m\]')\\$ "
-  unset last_return
-}
-
-psgit
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
