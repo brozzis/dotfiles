@@ -4,6 +4,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# disk usage at current level
+alias du1='du --max-depth=1'
+
 # Ruby Version Manager
 alias rc='rvm current'
 alias r18='rvm use 1.8.7'

@@ -49,9 +49,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
-# disk usage at current level
-alias du1='du --max-depth=1'
-
 # prepend ~/bin to PATH
 PATH="$HOME/bin:$PATH"
 
