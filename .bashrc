@@ -52,11 +52,6 @@ fi
 # disk usage at current level
 alias du1='du --max-depth=1'
 
-# upload ssh public key to a server
-function authme {
-  ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
-}
-
 # prepend ~/bin to PATH
 PATH="$HOME/bin:$PATH"
 
