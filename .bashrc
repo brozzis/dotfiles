@@ -67,4 +67,4 @@ done
 fi
 
 # Load Ruby Version Manager. This must come AFTER all PATH/variable settings.
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
