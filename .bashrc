@@ -51,11 +51,7 @@ PATH="$HOME/bin:$PATH"
 # jump to ~/dev subdirs
 export CDPATH=.:"$HOME/dev"
 
-if [ $(uname) == "Darwin" ]; then
-  export EDITOR=mvim
-else
-  export EDITOR=gvim
-fi
+export EDITOR=vim
 
 # for compiling some packages
 export LD_LIBRARY_PATH=/usr/local/lib
