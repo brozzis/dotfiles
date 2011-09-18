@@ -96,6 +96,9 @@ let g:ackprg="ack-grep\\ -H\\ --nocolor\\ --nogroup\\ --column" " for Ack plugin
 " kj to exit insert mode
 imap kj <Esc>
 
+" Y to yank to end of line
+map Y y$
+
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
