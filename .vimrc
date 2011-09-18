@@ -99,6 +99,9 @@ imap kj <Esc>
 " Y to yank to end of line
 map Y y$
 
+" Ctrl-x to close current buffer
+map <C-x> :q<CR>
+
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
