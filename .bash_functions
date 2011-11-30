@@ -7,6 +7,12 @@ function authme {
   ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
 }
 
+mkcd() {
+  [[ $1 ]] || return 0
+  [[ -d $1 ]] || mkdir -p "$1"
+  [[ -d $1 ]] && builtin cd "$1"
+}
+
 ghclone() {
   local usage="Usage: ghclone [-p] user repo"
   if (( $# == 3 )); then
