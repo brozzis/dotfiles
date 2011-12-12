@@ -56,7 +56,7 @@ export EDITOR=vim
 # for compiling some packages
 export LD_LIBRARY_PATH=/usr/local/lib
 
-# load credentials for various services
+# load extra goodies
 for f in .bash_aliases .bash_prompt .bash_functions .credentials; do
   [ -f "$HOME/$f" ] && source "$HOME/$f"
 done
