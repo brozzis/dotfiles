@@ -1,3 +1,4 @@
+ from: http://help.github.com/fork-a-repo/
  git remote add upstream https://github.com/alexreisner/dotfiles.git
  git fetch upstream
  git merge upstream/master
